@@ -35,7 +35,7 @@ const commands = [
 	`Create a file "$WORD.txt" containing: "$WORDS_WITH_WORD". Then search recursively for "$WORD".`,
 
 	// Deletion (scoped, safe)
-	`Create a directory "$WORD_tmp" and then delete it using: rm -rf "$WORD_tmp".`,
+	`Create a directory "$WORD" and then delete it.`,
 	`Create a file called "$WORD.txt" and immediately delete it.`,
 	`Delete the last file you created.`,
 	`Delete the last folder you created.`,

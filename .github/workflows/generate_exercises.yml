@@ -14,22 +14,27 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-        - uses: actions/checkout@v4
+          - uses: actions/checkout@v4
 
-        - name: check if exercises exist
-          run: |
+          - name: check if exercises exist
+            id: check
+            run: |
               if [ -f exercises.md ]; then
-                  echo "exercises.md already exists. Skipping generation."
-                  exit 0
+                  echo "exercises.md exists"
+                  echo "skip=true" >> $GITHUB_OUTPUT
+              else
+                  echo "skip=false" >> $GITHUB_OUTPUT
               fi
-              
-        - name: Set up Node.js
-          uses: actions/setup-node@v4
-          with:
-            node-version: 20
 
-        - name: Generate Exercises
-          run: |
+          - name: Set up Node.js
+            if: steps.check.outputs.skip == 'false'
+            uses: actions/setup-node@v4
+            with:
+              node-version: 20
+
+          - name: Generate Exercises
+            if: steps.check.outputs.skip == 'false'
+            run: |
               node .github/exercise_generator.js > exercises.md
               git config --global user.name "github-actions"
               git config --global user.email "actions@github.com"
