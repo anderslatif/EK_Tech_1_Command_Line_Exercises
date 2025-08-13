@@ -30,8 +30,8 @@ const commands = [
 
 	// Counting / Sorting / Unique
 	`Create a file called "$WORD.txt" containing these words (one per line): "$WORDS_DUP". Then count the lines.`,
-	`Create a file "words.txt" containing: "$WORDS_DUP". Then output the unique lines.`,
-	`Create a file "words.txt" containing: "$WORDS_DUP". Then output the sorted lines.`,
+	`Create a file "$WORD.txt" containing: "$WORDS_DUP". Then output the unique lines.`,
+	`Create a file "$WORD.txt" containing: "$WORDS_DUP". Then output the sorted lines.`,
 	`Create a file "$WORD.txt" containing: "$WORDS_WITH_WORD". Then search recursively for "$WORD".`,
 
 	// Deletion (scoped, safe)
